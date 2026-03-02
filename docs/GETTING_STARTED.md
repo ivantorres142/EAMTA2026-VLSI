@@ -20,11 +20,13 @@ This section provides single commands to install dependencies, clone the reposit
 
 #### Windows (PowerShell)
 
-If you are on Windows, ensure you have WSL installed (run `wsl --install -n` and wait for it to finish). Then open **PowerShell** and run this single command:
+Open **PowerShell** and paste this single command — it installs WSL + Ubuntu and sets up the entire design environment automatically:
 
 ```powershell
-wsl ~ -e bash -c "curl -sSL https://raw.githubusercontent.com/Fundacion-Fulgor/EAMTA2026-VLSI/develop/setup.sh -o /tmp/setup.sh && chmod +x /tmp/setup.sh && /tmp/setup.sh"
+irm https://raw.githubusercontent.com/Fundacion-Fulgor/EAMTA2026-VLSI/develop/install-wsl.ps1 | iex
 ```
+
+> **Note:** The first boot may take a few minutes while the environment is configured. Once complete, opening "Ubuntu-24.04" from the Start Menu will drop you directly into the design environment.
 
 #### Linux (Terminal)
 

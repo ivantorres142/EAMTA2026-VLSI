@@ -1,20 +1,81 @@
-* NGSPICE netlist for xorgate - IHP SG13G2 PDK
-* Generated from xorgate.sch
+** sch_path: /home/designer/shared/Training/GROTDC/XOR/XOR.sch
+.subckt XOR OUT A VDD B VSS
+*.PININFO VDD:B VSS:B A:I B:I OUT:O
+x2 VDD net3 net2 B VSS AND
+x4 VDD net3 A VSS INV_D1$2
+x5 VDD net1 B VSS INV_D1$2
+x1 VDD OUT net2 net4 VSS OR
+x3 VDD A net4 net1 VSS AND
+.ends
 
-.subckt xorgate vdd vss a_in b_in out
-* Complementary stage
-XM0 a_bis a_in vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1 m=1
-XM4 a_bis a_in vss vss sg13_lv_nmos w=1.5u l=0.15u ng=1 m=1
-* XOR logic (CMOS style)
-XM1 net1 b_bis vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1 m=1
-XM2 net1 a_in vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1 m=1
-XM3 out b_in net1 vdd sg13_lv_pmos w=1.5u l=0.15u ng=1 m=1
-XM5 net2 a_bis vss vss sg13_lv_nmos w=1.5u l=0.15u ng=1 m=1
-XM6 net2 b_bis vss vss sg13_lv_nmos w=1.5u l=0.15u ng=1 m=1
-XM7 out b_in net2 vss sg13_lv_nmos w=1.5u l=0.15u ng=1 m=1
-* Buffer inverter stage
-XM8 b_bis b_in vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1 m=1
-XM9 out_inv out vdd vdd sg13_lv_pmos w=0.75u l=0.15u ng=1 m=1
-XM10 b_bis b_in vss vss sg13_lv_nmos w=1.5u l=0.15u ng=1 m=1
-XM11 out_inv out vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1 m=1
-.ends xorgate
+* expanding   symbol:  /home/designer/shared/Training/GROTDC/AND/AND.sym # of pins=5
+** sym_path: /home/designer/shared/Training/GROTDC/AND/AND.sym
+** sch_path: /home/designer/shared/Training/GROTDC/AND/AND.sch
+.subckt AND VDD VA VOUT VB VSS
+*.PININFO VDD:B VSS:B VA:I VB:I VOUT:O
+x1 VDD VA net1 VB VSS NAND
+x2 VDD VOUT net1 VSS INV_D1$1
+.ends
+
+
+* expanding   symbol:  /home/designer/shared/Training/GROTDC/INV_D1/INV_D1.sym # of pins=4
+** sym_path: /home/designer/shared/Training/GROTDC/INV_D1/INV_D1.sym
+** sch_path: /home/designer/shared/Training/GROTDC/INV_D1/INV_D1.sch
+.subckt INV_D1 VDD VOUT VIN VSS
+*.PININFO VDD:B VSS:B VOUT:O VIN:I
+M2 VOUT VIN VDD VDD sg13_lv_pmos w=0.3u l=0.13u ng=1 m=1
+M1 VOUT VIN VSS VSS sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1
+.ends
+
+* expanding   symbol:  /home/designer/shared/Training/GROTDC/INV_D1/INV_D1.sym # of pins=4
+** sym_path: /home/designer/shared/Training/GROTDC/INV_D1/INV_D1.sym
+** sch_path: /home/designer/shared/Training/GROTDC/INV_D1/INV_D1.sch
+.subckt INV_D1$1 VDD VOUT VIN VSS
+*.PININFO VDD:B VSS:B VOUT:O VIN:I
+M2 VOUT VIN VDD VDD sg13_lv_pmos w=0.3u l=0.13u ng=1 m=1
+M1 VOUT VIN VSS VSS sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1
+.ends
+
+* expanding   symbol:  /home/designer/shared/Training/GROTDC/INV_D1/INV_D1.sym # of pins=4
+** sym_path: /home/designer/shared/Training/GROTDC/INV_D1/INV_D1.sym
+** sch_path: /home/designer/shared/Training/GROTDC/INV_D1/INV_D1.sch
+.subckt INV_D1$2 VDD VOUT VIN VSS
+*.PININFO VDD:B VSS:B VOUT:O VIN:I
+M2 VOUT VIN VDD VDD sg13_lv_pmos w=0.3u l=0.13u ng=1 m=1
+M1 VOUT VIN VSS VSS sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1
+.ends
+
+
+* expanding   symbol:  /home/designer/shared/Training/GROTDC/OR/OR.sym # of pins=5
+** sym_path: /home/designer/shared/Training/GROTDC/OR/OR.sym
+** sch_path: /home/designer/shared/Training/GROTDC/OR/OR.sch
+.subckt OR VDD VOUT VA VB VSS
+*.PININFO VDD:B VSS:B VA:I VB:I VOUT:O
+x2 VDD VOUT net1 VSS INV_D1
+x1 VDD net1 VA VB VSS NOR
+.ends
+
+
+* expanding   symbol:  /home/designer/shared/Training/GROTDC/AND/NAND.sym # of pins=5
+** sym_path: /home/designer/shared/Training/GROTDC/AND/NAND.sym
+** sch_path: /home/designer/shared/Training/GROTDC/AND/NAND.sch
+.subckt NAND VDD VA VOUT VB VSS
+*.PININFO VDD:B VSS:B VA:I VB:I VOUT:O
+M1 net1 VB VSS VSS sg13_lv_nmos w=0.45u l=0.13u ng=1 m=1
+M2 VOUT VA net1 VSS sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1
+M3 VOUT VB VDD VDD sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1
+M4 VOUT VA VDD VDD sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1
+.ends
+
+
+* expanding   symbol:  /home/designer/shared/Training/GROTDC/NOR/NOR.sym # of pins=5
+** sym_path: /home/designer/shared/Training/GROTDC/NOR/NOR.sym
+** sch_path: /home/designer/shared/Training/GROTDC/NOR/NOR.sch
+.subckt NOR VDD VOUT VA VB VSS
+*.PININFO VDD:B VSS:B VA:I VB:I VOUT:O
+M1 VOUT VA VSS VSS sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1
+M2 VOUT VB VSS VSS sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1
+M3 VOUT VB net1 VDD sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1
+M4 net1 VA VDD VDD sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1
+.ends
+

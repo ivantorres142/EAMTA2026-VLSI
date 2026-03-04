@@ -1,7 +1,6 @@
-* NGSPICE netlist for transmissiongate - IHP SG13G2 PDK
-* Generated from transmissiongate.sch
-
-.subckt transmissiongate vdd vss in out a_neg a_pos
-XM0 out a_neg in vdd sg13_lv_pmos w=2.0u l=0.13u ng=1 m=1
-XM1 in a_pos out vss sg13_lv_nmos w=1.0u l=0.13u ng=1 m=1
-.ends transmissiongate
+** sch_path: /home/designer/shared/Training/GROTDC/TG_2C.sch
+.subckt TG_2C VCTRLN VSS VOUT VIN VDD VCTRLP
+*.PININFO VCTRLN:B VCTRLP:B VOUT:O VIN:I VSS:B VDD:B
+M1 VOUT VCTRLN VIN VSS sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1
+M2 VOUT VCTRLP VIN VDD sg13_lv_pmos w=0.15u l=0.13u ng=1 m=2
+.ends

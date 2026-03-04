@@ -5,44 +5,41 @@ V {}
 S {}
 F {}
 E {}
-N -0 -50 80 -50 {lab=vdd}
-N -0 -90 -0 -80 {lab=vdd}
-N 0 -90 80 -90 {lab=vdd}
-N 0 50 80 50 {lab=vss}
-N 80 -90 80 -50 {lab=vdd}
-N 0 80 0 90 {lab=vss}
-N 0 90 80 90 {lab=vss}
-N 80 50 80 90 {lab=vss}
-N 0 0 0 20 {lab=out}
-N -50 -50 -40 -50 {lab=in}
-N -50 0 -50 50 {lab=in}
-N -50 50 -40 50 {lab=in}
-N -60 0 -50 0 {lab=in}
-N 0 0 10 0 {lab=out}
-N 80 50 90 50 {lab=vss}
-N 80 -50 90 -50 {lab=vdd}
-N -50 -50 -50 0 {lab=in}
-N -0 -20 0 0 {lab=out}
-C {sg13g2_pr/sg13_lv_nmos.sym} -20 50 0 0 {name=M1
-w=0.75u
-l=0.15u
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} -20 -50 0 0 {name=M2
-w=1.5u
-l=0.15u
+N 170 -140 170 -110 {lab=out}
+N 90 -140 90 -80 {lab=in}
+N 90 -210 90 -140 {lab=in}
+N 170 -30 170 -10 {lab=vss}
+N 50 -140 90 -140 {lab=in}
+N 90 -80 130 -80 {lab=in}
+N 90 -210 130 -210 {lab=in}
+N 170 -140 210 -140 {lab=out}
+N 170 -180 170 -140 {lab=out}
+N 170 -260 170 -240 {lab=vdd}
+N 170 -210 190 -210 {lab=vdd}
+N 190 -260 190 -210 {lab=vdd}
+N 170 -80 190 -80 {lab=vss}
+N 190 -80 190 -30 {lab=vss}
+N 170 -260 190 -260 {lab=vdd}
+N 170 -280 170 -260 {lab=vdd}
+N 170 -30 190 -30 {lab=vss}
+N 170 -50 170 -30 {lab=vss}
+C {sg13g2_pr/sg13_lv_pmos.sym} 150 -210 0 0 {name=M2
+l=0.13u
+w=0.3u
 ng=1
 m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {iopin.sym} 90 -50 0 0 {name=p1 lab=vdd
-}
-C {iopin.sym} 10 0 0 0 {name=p2 lab=out
-}
-C {iopin.sym} 90 50 0 0 {name=p3 lab=vss}
-C {iopin.sym} -60 0 2 0 {name=p4 lab=in
+C {iopin.sym} 170 -280 0 0 {name=p1 lab=vdd}
+C {iopin.sym} 170 -10 0 0 {name=p2 lab=vss}
+C {iopin.sym} 210 -140 0 0 {name=p3 lab=out}
+C {iopin.sym} 50 -140 0 1 {name=p4 lab=in}
+C {sg13g2_pr/sg13_lv_nmos.sym} 150 -80 0 0 {name=M1
+l=0.13u
+w=0.15u
+ng=1
+m=1
+model=sg13_lv_nmos
+spiceprefix=X
 }

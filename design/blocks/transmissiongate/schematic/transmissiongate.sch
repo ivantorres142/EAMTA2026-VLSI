@@ -5,41 +5,39 @@ V {}
 S {}
 F {}
 E {}
-N -50 160 -30 160 {lab=in}
-N -50 -20 -50 160 {lab=in}
-N -50 -20 -30 -20 {lab=in}
-N 30 -20 50 -20 {lab=out}
-N 50 -20 50 160 {lab=out}
-N 30 160 50 160 {lab=out}
-N -70 -20 -50 -20 {lab=in}
-N 50 -20 70 -20 {lab=out}
-N 0 -20 0 60 {lab=vdd}
-N 0 60 70 60 {lab=vdd}
-N 0 80 0 160 {lab=vss}
-N 0 80 70 80 {lab=vss}
-N -0 200 -0 220 {lab=a_pos}
-N -0 220 70 220 {lab=a_pos}
-N 0 -80 0 -60 {lab=a_neg}
-N 0 -80 70 -80 {lab=a_neg}
-C {sg13g2_pr/sg13_lv_pmos.sym} 0 -40 1 0 {name=M0
-w=1.5u
-l=0.15u
-ng=1
-m=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_nmos.sym} 0 180 1 1 {name=M1
-w=0.75u
-l=0.15u
+N 100 -220 140 -220 {lab=in}
+N 260 -220 300 -220 {lab=out}
+N 210 -320 210 -260 {lab=vss}
+N 210 -180 210 -120 {lab=vdd}
+N 140 -220 140 -120 {lab=in}
+N 140 -320 140 -220 {lab=in}
+N 140 -320 180 -320 {lab=in}
+N 260 -220 260 -120 {lab=out}
+N 260 -320 260 -220 {lab=out}
+N 240 -320 260 -320 {lab=out}
+N 210 -400 210 -360 {lab=a_neg}
+N 210 -80 210 -40 {lab=a_pos}
+N 140 -120 180 -120 {lab=in}
+N 240 -120 260 -120 {lab=out}
+C {sg13g2_pr/sg13_lv_nmos.sym} 210 -340 1 0 {name=M1
+l=0.13u
+w=0.15u
 ng=1
 m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
-C {iopin.sym} 70 60 0 0 {name=p3 lab=vdd}
-C {iopin.sym} 70 80 0 0 {name=p1 lab=vss}
-C {iopin.sym} 70 -20 0 0 {name=p2 lab=out}
-C {iopin.sym} -70 -20 2 0 {name=p4 lab=in}
-C {iopin.sym} 70 -80 0 0 {name=p5 lab=a_neg}
-C {iopin.sym} 70 220 0 0 {name=p6 lab=a_pos}
+C {sg13g2_pr/sg13_lv_pmos.sym} 210 -100 3 0 {name=M2
+l=0.13u
+w=0.15u
+ng=1
+m=2
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {iopin.sym} 210 -400 0 0 {name=p1 lab=a_neg}
+C {iopin.sym} 210 -40 0 0 {name=p2 lab=a_pos}
+C {iopin.sym} 300 -220 0 0 {name=p3 lab=out}
+C {iopin.sym} 100 -220 0 1 {name=p4 lab=in}
+C {iopin.sym} 210 -260 0 0 {name=p5 lab=vss}
+C {iopin.sym} 210 -180 0 0 {name=p6 lab=vdd}

@@ -20,18 +20,20 @@ This section provides single commands to install dependencies, clone the reposit
 
 #### Windows (PowerShell)
 
-If you are on Windows, ensure you have WSL installed (run `wsl --install` and complete the initial user setup if you haven't already). Then open **PowerShell** and run this single command:
+Open **PowerShell** and paste this single command — it installs WSL + Ubuntu and sets up the entire design environment automatically:
 
 ```powershell
-wsl ~ -e bash -c "cd ~ && { [ -d EAMTA2026-VLSI ] || git clone https://github.com/Fundacion-Fulgor/EAMTA2026-VLSI.git; } && cd EAMTA2026-VLSI && ./setup.sh --auto"
+irm https://raw.githubusercontent.com/Fundacion-Fulgor/EAMTA2026-VLSI/develop/install-wsl.ps1 | iex
 ```
+
+> **Note:** The first boot may take a few minutes while the environment is configured. Once complete, opening "Ubuntu-24.04" from the Start Menu will drop you directly into the design environment.
 
 #### Linux (Terminal)
 
 If you are already on a Linux system, open your terminal and run:
 
 ```bash
-cd ~ && { [ -d EAMTA2026-VLSI ] || git clone https://github.com/Fundacion-Fulgor/EAMTA2026-VLSI.git } && cd EAMTA2026-VLSI && ./setup.sh --auto
+cd ~ && { [ -d EAMTA2026-VLSI ] || git clone https://github.com/Fundacion-Fulgor/EAMTA2026-VLSI.git; } && cd EAMTA2026-VLSI && ./setup.sh
 ```
 
 ### 2. Set Up GitHub SSH Keys (Required)
